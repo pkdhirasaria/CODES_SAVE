@@ -26,6 +26,9 @@ void possiblePath(int m[][20],int n,int row,int col)
         cout<<endl;
         return;
     }
+    //if rows or column exceeds grid
+    // if the current cell in m is not open i.e. it's 0
+    // if we have already taken that cell in our path i.e. 1
     if(row>=n || col >= n || row <0 || col <0 || m[row][col] == 0 || ans[row][col] == 1)
     {
         return;
