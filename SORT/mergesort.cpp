@@ -52,7 +52,7 @@ void merge(int a[],int l,int r, int mid)
 
 
 
-
+//calling from main as mergeSort(a,0,size-1);
 void mergeSort(int a[],int l,int r)
 {
     if(l<r)
