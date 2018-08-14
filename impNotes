@@ -1,0 +1,8 @@
+FIB :
+
+
+ N is a Fibonacci number if and only if 5 N2 + 4 or 5 N2 – 4 is a square number.
+ 
+ Sum till nth fib number is equal to sn = F(n+2) -1 
+ 
+ 
