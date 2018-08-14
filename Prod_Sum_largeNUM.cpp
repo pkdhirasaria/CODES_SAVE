@@ -32,7 +32,7 @@ int * findpower(string s, string n)
 
 }
 
-int * getSum(string a,string b,long long n)
+int * getSum(string a,string b,string n)
 {
     int *p1 = findpower(a,n);
     int *p2 = findpower(b,n);
