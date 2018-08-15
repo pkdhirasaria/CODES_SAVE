@@ -1,42 +1,52 @@
-#include<iostream>
+#define MOD 1000000007
+#define ull unsigned long long
 using namespace std;
 
-
-void multiply(int A[2][2],int M[2][2]){
-
-	int firstValue = A[0][0] * M[0][0] + A[0][1] * M[1][0];
-	int secondValue = A[0][0] * M[0][1] + A[0][1] * M[1][1];
-	int thirdValue = A[1][0] * M[0][0] + A[1][1] * M[1][0];
-	int fourthValue = A[1][0] * M[0][1] + A[1][1] * M[1][1];
+void multiply(ull A[][2],ull M[][2])
+{
+    ull firstValue = ((A[0][0] * M[0][0])%MOD + ((A[0][1] * M[1][0])%MOD)%MOD);
+	ull secondValue = ((A[0][0] * M[0][1])%MOD + ((A[0][1] * M[1][1])%MOD)%MOD);
+	ull thirdValue = ((A[1][0] * M[0][0])%MOD + ((A[1][1] * M[1][0])%MOD)%MOD);
+	ull fourthValue = ((A[1][0] * M[0][1])%MOD + ((A[1][1] * M[1][1])%MOD)%MOD);
 
 	A[0][0] =firstValue;
 	A[0][1] = secondValue;
 	A[1][0] = thirdValue;
 	A[1][1] = fourthValue;
-	
 }
-void power(int A[2][2],int n){
-	if(n==1){
-		return;
-	}
-	power(A,n/2);
-	multiply(A,A);
-	if(n%2 !=0){
-		int F[2][2] = {{1,1},{1,0}};
-		multiply(A,F);
-	}
+
+
+void martixExponentiation(ull A[2][2],ull n)
+{
+    if(n == 1)
+        return;
+    martixExponentiation(A,n/2);
+    multiply(A,A);
+    if(n%2 != 0)
+    {
+        ull M[2][2] = {{1,1},{1,0}};
+        multiply(A,M);
+    }
+
 }
-int getFibonacci(int n){
-	if(n==0 || n==1){
-		return n;
-	}
-	int A[2][2] = {{1,1},{1,0}};
-	power(A,n-1);
-	return A[0][0];
+
+ull getFib(ull n)
+{
+    if(n == 0 || n == 1)
+    {
+        return n;
+    }
+    ull A[2][2] = {{1,1},{1,0}};
+    martixExponentiation(A,n-1);
+    return (A[0][0])%MOD;
 }
-int main(){
-	int n;
-	cin >> n;
-	cout << getFibonacci(n)<<endl;
-	return 0;
+
+
+unsigned long long fiboSum(unsigned long long m,unsigned long long n)
+{
+  	ull a = getFib(m+1);
+  	ull b = getFib(n+2);
+  	return (b-a+MOD)%MOD;
+	// Write your code here
 }
+
