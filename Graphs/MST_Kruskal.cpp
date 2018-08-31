@@ -1,6 +1,16 @@
 
 //Using Kruskal Algorithm with checking of cycle using union methon
 
+//Algorithm
+//Sort the weight of edges in ascending order 
+//Assign the parent array with the value of self node number..ex parent[1] = 1, parent[2] = 2
+//if there are n vertext the for MST there will be n-1 edges
+//find the parent of both destination and source
+// if there parent is same means their edge will form cycle so we can't include that in our MST 
+//else we will include it in our MST
+
+
+
 #include <bits/stdc++.h>
 #define ll long long
 using namespace std;
