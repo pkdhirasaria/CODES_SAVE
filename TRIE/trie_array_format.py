@@ -15,7 +15,7 @@ class Trie:
                 currentNode.children[index] = Trie()
             currentNode = currentNode.children[index]
         currentNode.keyname = userName
-        currentNode.isEnd = Trie
+        currentNode.isEnd = True
         currentNode.tweetCount += 1
 
     def find_max_tweet(self, root, value):
